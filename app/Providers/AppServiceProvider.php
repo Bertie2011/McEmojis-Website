@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Http\Models\McEmojiDownloads;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +14,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton(McEmojiDownloads::class, function($app) {
+            return new McEmojiDownloads();
+        });
     }
 
     /**
