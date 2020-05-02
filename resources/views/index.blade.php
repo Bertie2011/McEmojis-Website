@@ -1,61 +1,47 @@
 @extends('frame')
 @section('head')
     <script src="/js/index.js" defer></script>
+    <link rel="stylesheet" href="/css/index.css"/>
 @endsection
 @section('content')
-    {{-- Cover --}}
-    <div class="uk-cover-container uk-height" uk-height-viewport="offset-bottom: true" id="cover">
-        <img src="" alt="" uk-cover>
-        <h1 class="uk-position-top-left uk-margin-top uk-margin-right uk-margin-bottom uk-margin-left">MC Emojis</h1>
-        <span class="uk-position-top-right uk-margin-top uk-margin-right uk-margin-bottom uk-margin-left uk-text-right">
-            <h4 class="uk-margin-remove">Google Noto</h4>
-            Source of emoji images
+    {{-- Mobile version header --}}
+    <div class="uk-flex uk-flex-row uk-flex-between uk-hidden@s">
+        <h2 class="uk-margin-top uk-margin-right uk-margin-bottom uk-margin-left">{{$title}}</h2>
+        <span class="uk-margin-top uk-margin-right uk-margin-bottom uk-margin-left uk-text-right">
+            <h4 class="uk-margin-remove">{{$second}}</h4>
+            {{$second_sub}}
         </span>
-        <div id="download-card" class="uk-position-center uk-card uk-card-body uk-card-default uk-card-hover uk-card-small uk-width-1-1 uk-width-1-2@s uk-width-1-3@m uk-width-1-4@l">
-            <h3 class="uk-card-title">Download</h3>
-            <form <form class="uk-form-stacked">
-                <div>
-                    <label class="uk-form-label">Version:</label>
-                    <div class="uk-form-controls">
-                        <select class="uk-select" id="version-selector">
-                            @foreach ($versions as $version)
-                            <option value="{{json_encode($version)}}">{{$version["version"]}}</option>   
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-                <div>
-                    <div class="uk-form-label"></div>
-                    <div class="uk-form-controls"></div>
-                </div>
-            </form>
-            <a class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-top" id="dl-rp" href="#">
-                <span uk-icon="icon: paint-bucket" class="uk-margin-small-right"></span>
-                Resource Pack
-            </a>
-            <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-top" id="dl-ed" type="button">
-                <span uk-icon="icon: thumbnails" class="uk-margin-small-right"></span>
-                Emoji Drawer
-            </button>
-            <div>
-                <div class="uk-button-group uk-width-1-1 uk-animation-fast" id="dl-ed-group">
-                    <a class="uk-button uk-button-default uk-flex-auto" id="dl-ed-windows" href="#">Windows</a>
-                    <a class="uk-button uk-button-default uk-flex-auto" id="dl-ed-mac" href="#">MacOS</a>
-                    <a class="uk-button uk-button-default uk-flex-auto" id="dl-ed-linux" href="#">Linux</a>
-                </div>
+    </div>
+    {{-- Cover --}}
+    <div class="uk-cover-container uk-box-shadow-medium uk-visible@s" id="cover">
+        {{-- <iframe src="https://www.youtube.com/embed/ThB6P3AamXU?autoplay=1&color=white&controls=0&disablekb=1&loop=1" width="1920" height="1004" frameborder="0" allowfullscreen uk-responsive></iframe> --}}
+        <div>
+            <video src="/demo.mp4" autoplay loop muted uk-video="autoplay: true"></video>
+            <div class="uk-flex uk-flex-row uk-flex-center">
+                <a href="#download-both" uk-icon="icon: chevron-down; ratio: 2" uk-scroll></a>
             </div>
         </div>
+        <h1 class="uk-light uk-position-top-left uk-margin-top uk-margin-right uk-margin-bottom uk-margin-left">{{$title}}</h1>
+        <span class="uk-light uk-position-top-right uk-margin-top uk-margin-right uk-margin-bottom uk-margin-left uk-text-right">
+            <h4 class="uk-margin-remove">{{$second}}</h4>
+            {{$second_sub}}
+        </span>
+        <div class="uk-position-center-right uk-width-1-3@m uk-width-1-4@l uk-visible@m">
+            @include('includables.download')
+        </div>
     </div>
-    <div class="uk-flex uk-flex-row uk-flex-center uk-box-shadow-medium">
-        <a href="#download-both" uk-icon="icon: chevron-down; ratio: 2" uk-scroll></a>
+    {{-- Mobile Version Download --}}
+    <div class="uk-hidden@m">
+        @include('includables.download')
     </div>
+    {{-- Content --}}
     <div class="uk-container uk-margin-large">
         <h4 id="download-both">Do I need to download both?</h4>
         <p>Yes. The emoji drawer provides a complete list of emojis. It floats on top of all other windows,
             allowing it to be visible while playing minecraft. It also has a search bar, can be minimized and has a quick send & mimize button.
             Make sure the drawer is positioned on top of Minecraft and then click any emoji to insert it.
-            Right-click any emoji to insert it's escaped sequence (\uXXXX) into Minecraft. These sequences can be used in /tellraw,
-            signs, books, chest names, animal names, item names and anywhere else that supports the Minecraft JSON text.</p>
+            Right-click any emoji to insert it's escaped sequence (\uXXXX) into Minecraft.
+            These sequences can be used in /tellraw and a couple other places.</p>
         <p>
             The emojis aren't just thrown into Minecraft, they are converted to their numerical code points first.
             The resource pack provides a custom font that maps the code points to the emoji images.
@@ -96,23 +82,31 @@
             <li><p>Unzip the downloaded file into a non-temporary location.
                 This could be <code>usr/local/bin</code> for example.
                 Navigate to the <code>bin</code> folder inside.
-                Mark the <code>MC Emojis</code> file as executable and create a symbolic link.
-                Use <code>chmod +x "MC Emojis"; ln -s "MC Emojis - Shortcut" "MC Emojis"</code> or
-                google to see if your distribution provides a graphical interface for this.
-                You can now move the symbolic link to a more convenient place.
-                Double-click the symbolic link or the original file to launch the emoji drawer.
+                Mark the <code>MC Emojis</code> and <code>java</code> files as executable by using a File Properties window
+                provided by your distribution or use <code>chmod +x "MC Emojis" "java"</code>.
+                Go back to the parent directory.
+                Create a symbolic link of the <code>bin</code> folder by once again using the GUI or 
+                <code>ln -s "$(readlink -f bin)" "MC Emojis"</code>.
+                You can now move the created symbolic link to a more convenient place.
+                Double-click <code>MC Emojis</code> inside the <code>bin</code> folder or symbolic link to launch the emoji drawer.
             </p></li>
         </ul>
         <h4>Submitting a bug, question or feature request</h4>
         <p>You can submit a new issue over at the issue-only 
             <a href="https://github.com/Bertie2011/McEmojis-Issues/issues" target="_blank">GitHub Repository</a>.</p>
+        <h4 id="support"><span uk-icon="icon: heart"></span> Support MC Emojis</h4>
+        <p>Creating the resource pack and developing the Emoji Drawer takes a lot of time.
+            If you'd like to support MC Emojis, have a look at the possibilities below. Any help is appreciated 
+            <span uk-icon="icon: happy"></span></p>
+        <div class="uk-flex-inline uk-flex-column uk-flex-stretched" uk-margin>
+            <button class="uk-button uk-button-default">Do not re-distribute</button>
+            <button class="uk-button uk-button-default">Tell your friends about it!</button>
+            <button class="uk-button uk-button-primary" id="notify-support" {{$has_supported ? 'disabled' : ''}}>Notify me of your support!</button>
+        </div>
         {{-- 
-            TODO: 
-            add background video/gif
-            check if it works on Linux -> Recreate downloadable files?
-            Donation.
-            Share buttons
-            PMC
+            TODO:
+            Donation. And explanation of costs
+            PMC?
         --}}
     </div>
     <div class="uk-flex uk-flex-row uk-flex-center">
