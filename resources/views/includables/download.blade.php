@@ -31,7 +31,7 @@
             <a class="uk-button uk-button-default uk-flex-auto uk-padding-remove dl-ed-linux" href="#">Linux</a>
         </div>
     </div>
-    <a class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-top" href="#support">
+    <a class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-top" href="#support" uk-scroll>
         <span uk-icon="icon: heart" class="uk-margin-small-right"></span>
         Support Me
     </a>
