@@ -18,7 +18,7 @@
         <div>
             <video src="https://drive.google.com/uc?id=1n8Bv4kIkE2qaX23xqkRn-V5DT1d7XzwT&export=download" poster="/demo-poster.png" autoplay loop muted uk-video="autoplay: true"></video>
             <div class="uk-flex uk-flex-row uk-flex-center">
-                <a href="#download-both" uk-icon="icon: chevron-down; ratio: 2" uk-scroll></a>
+                <a href="#download-both" uk-icon="icon: chevron-down; ratio: 2" class="uk-width-1-1 uk-text-center" uk-scroll></a>
             </div>
         </div>
         <h1 class="uk-light uk-position-top-left uk-margin-top uk-margin-right uk-margin-bottom uk-margin-left">{{$title}}</h1>
@@ -114,6 +114,6 @@
         --}}
     </div>
     <div class="uk-flex uk-flex-row uk-flex-center">
-        <a href="#cover" uk-icon="icon: chevron-up; ratio: 2" uk-scroll></a>
+        <a href="#cover" uk-icon="icon: chevron-up; ratio: 2" class="uk-width-1-1 uk-text-center" uk-scroll></a>
     </div>
 @endsection
