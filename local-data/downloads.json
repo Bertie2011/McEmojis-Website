@@ -1,0 +1,11 @@
+[
+    {
+        "version": "1.15 - 1.16",
+        "resource_pack": "https://drive.google.com/uc?id=1ZjleXsdoL8T7I2kYKeZ8l-7PcNPLxgdW&export=download",
+        "drawer": {
+            "windows": "https://drive.google.com/uc?id=1bG0SxWZnc1jReFZB8RCcK_gY2ceuHFYF&export=download",
+            "macOS": "https://drive.google.com/uc?id=1eMf4jb7zssn2XDpFneWQ4nTI-4ly9Pm9&export=download",
+            "linux": "https://drive.google.com/uc?id=1PSrUMv5Ea9Dr10XuzUniTLcP9xedocY1&export=download"
+        }
+    }
+]

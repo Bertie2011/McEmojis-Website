@@ -16,7 +16,7 @@
     <div class="uk-cover-container uk-box-shadow-medium uk-visible@s" id="cover">
         {{-- <iframe src="https://www.youtube.com/embed/ThB6P3AamXU?autoplay=1&color=white&controls=0&disablekb=1&loop=1" width="1920" height="1004" frameborder="0" allowfullscreen uk-responsive></iframe> --}}
         <div>
-            <video src="/demo.mp4" autoplay loop muted uk-video="autoplay: true"></video>
+            <video src="https://drive.google.com/uc?id=1n8Bv4kIkE2qaX23xqkRn-V5DT1d7XzwT&export=download" poster="/demo-poster.png" autoplay loop muted uk-video="autoplay: true"></video>
             <div class="uk-flex uk-flex-row uk-flex-center">
                 <a href="#download-both" uk-icon="icon: chevron-down; ratio: 2" uk-scroll></a>
             </div>
