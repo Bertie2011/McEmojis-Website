@@ -1,3 +1,4 @@
+import UIkit from 'uikit';
 
 const selectedVersions = document.getElementsByClassName('version-selector');
 const rpButtons = document.getElementsByClassName('dl-rp');
@@ -6,16 +7,15 @@ const edButtonGroups = document.getElementsByClassName('dl-ed-group');
 const edButtonsWindows = document.getElementsByClassName('dl-ed-windows');
 const edButtonsMac = document.getElementsByClassName('dl-ed-mac');
 const edButtonsLinux = document.getElementsByClassName('dl-ed-linux');
-const routePrefix = '/downloads/mc-emojis/';
 const notifySupportButton = document.getElementById('notify-support');
 
 function setup() {
-    for (e of selectedVersions) e.addEventListener('change', () => updateDownloadButtons(e));
-    for (e of edButtonGroups) e.style.display = 'none';
+    for (let e of selectedVersions) e.addEventListener('change', () => updateDownloadButtons(e));
+    for (let e of edButtonGroups) e.style.display = 'none';
     // If any download button is clicked, show group
-    for (e of edButtons) {
+    for (let e of edButtons) {
         e.addEventListener('click', () => {
-            for (edGroup of edButtonGroups) {
+            for (let edGroup of edButtonGroups) {
                 edGroup.style.display = null
                 edGroup.classList.add('uk-animation-fade');
                 setTimeout(((edGroup) => () => { //see bottom of page
@@ -44,10 +44,10 @@ function setup() {
 
 function updateDownloadButtons(selectElement) {
     const version = JSON.parse(selectElement.options[selectElement.selectedIndex].value);
-    for (e of rpButtons) e.href = version.resource_pack;
-    for (e of edButtonsWindows) e.href = version.drawer.windows;
-    for (e of edButtonsMac) e.href = version.drawer.macOS;
-    for (e of edButtonsLinux) e.href = version.drawer.linux;
+    for (let e of rpButtons) e.href = version.resource_pack;
+    for (let e of edButtonsWindows) e.href = version.drawer.windows;
+    for (let e of edButtonsMac) e.href = version.drawer.macOS;
+    for (let e of edButtonsLinux) e.href = version.drawer.linux;
 }
 
 setup();

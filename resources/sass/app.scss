@@ -1,6 +1,9 @@
 
 // -------- UI KIT ---------------
 // 1. Your custom variables and variable overwrites.
+$global-primary-background: #00c853;
+$global-secondary-background: #0091ea;
+$base-code-color: #4caf50;
 
 // 2. Import default variables and available mixins.
 @import "~uikit/src/scss/variables-theme.scss";
