@@ -33,6 +33,6 @@
     </div>
     <a class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-top" href="#support" uk-scroll>
         <span uk-icon="icon: heart" class="uk-margin-small-right"></span>
-        Support Me
+        Support MC Emojis
     </a>
 </div>

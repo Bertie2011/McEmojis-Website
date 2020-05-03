@@ -94,18 +94,22 @@
         <h4>Submitting a bug, question or feature request</h4>
         <p>You can submit a new issue over at the issue-only 
             <a href="https://github.com/Bertie2011/McEmojis-Issues/issues" target="_blank">GitHub Repository</a>.</p>
-        <h4 id="support"><span uk-icon="icon: heart"></span> Support MC Emojis</h4>
-        <p>Creating the resource pack and developing the Emoji Drawer takes a lot of time.
-            If you'd like to support MC Emojis, have a look at the possibilities below. Any help is appreciated 
-            <span uk-icon="icon: happy"></span></p>
+        <h4 id="support">Support MC Emojis <span uk-icon="icon: heart"></span></h4>
+        <p>Creating the resource pack and developing the Emoji Drawer takes a lot of time. Unfortunately, it isn't free either.
+            Donations will go towards improving the Emoji Drawer, providing continuous support for new Minecraft versions and keeping
+            this website online. If you'd like to support MC Emojis, have a look at the possibilities below.
+            Although a donation would really be appreciated, there are free ways to help out too. 
+            <br><br>Thank you for your support in whatever way you choose. 
+        </p>
         <div class="uk-flex-inline uk-flex-column uk-flex-stretched" uk-margin>
             <button class="uk-button uk-button-default">Do not re-distribute</button>
             <button class="uk-button uk-button-default">Tell your friends about it!</button>
-            <button class="uk-button uk-button-primary" id="notify-support" {{$has_supported ? 'disabled' : ''}}>Notify me of your support!</button>
+            <button class="uk-button uk-button-default">Promote usage on your server</button>
+            <button class="uk-button uk-button-secondary" id="notify-support" {{$has_supported ? 'disabled' : ''}}>Notify me of your support!</button>
+            <a class="uk-button uk-button-primary" target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=94GCUKDNYZBEY&source=url">Donate with PayPal</a>
         </div>
         {{-- 
             TODO:
-            Donation. And explanation of costs
             PMC?
         --}}
     </div>
