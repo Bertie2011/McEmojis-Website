@@ -26,7 +26,7 @@ function setup() {
         });
     }
     document.addEventListener('click', () => {
-        for (e of edButtonGroups) {
+        for (let e of edButtonGroups) {
             e.classList.add('uk-animation-fade');
             e.classList.add('uk-animation-reverse');
             setTimeout(((e) => () => {
